@@ -158,10 +158,10 @@
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L113'></a><a href='#L113'>113</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,7 +189,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -200,14 +199,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -252,12 +249,9 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -276,128 +270,125 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import messages from '../models/messages';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable no-shadow */
+/* eslint-disable radix */
+/* eslint-disable no-underscore-dangle */
+import messages from '../models/messages';
 import validateMessages from '../helpers/messagesValidation';
 &nbsp;
 // compose/post messages
-export const composeMessages =((req, res,) =&gt;{
-    const {error} = validateMessages.validation(req.body);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (error){
-        res.status(400).send(error);
-        return;
-    } 
-    const _id = <span class="cstat-no" title="statement not covered" >parseInt(m</span>essages.length + 1);
-    const newMessages = <span class="cstat-no" title="statement not covered" >{</span>
-        id: _id,
-        createdOn: new Date(),
-        subject: req.body.subject,
-        message: req.body.message,
-        parentMessageId: req.body.parentMessageId,
-        status:req.body.status
-    }
+export const composeMessages = ((req, res) =&gt; {
+  const { error } = validateMessages.validation(req.body);
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (error) {
+    res.status(400).send(error);
+    return;
+  }
+  const _id = <span class="cstat-no" title="statement not covered" >parseInt(m</span>essages.length + 1);
+  const newMessages = <span class="cstat-no" title="statement not covered" >{</span>
+    id: _id,
+    createdOn: new Date(),
+    subject: req.body.subject,
+    message: req.body.message,
+    parentMessageId: req.body.parentMessageId,
+    status: req.body.status,
+  };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    messages.p</span>ush(newMessages);
-<span class="cstat-no" title="statement not covered" >    res.</span>status(201).json({
-        status: 201,
-        data: newMessages
-    })
-&nbsp;
+<span class="cstat-no" title="statement not covered" >  messages.p</span>ush(newMessages);
+<span class="cstat-no" title="statement not covered" >  res.</span>status(201).json({
+    status: 201,
+    data: newMessages,
+  });
 });
 &nbsp;
 // get all messages
-export const <span class="fstat-no" title="function not covered" >getMessages </span>= ((req,res)=&gt;{
-<span class="cstat-no" title="statement not covered" >    if(!messages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('no email found');
-<span class="cstat-no" title="statement not covered" >    res.</span>status(200).json({
-        status: 200,
-        data: messages
-        
-    })
-   
-   });
+export const <span class="fstat-no" title="function not covered" >getMessages </span>= ((req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >  if (!messages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('no email found');
+<span class="cstat-no" title="statement not covered" >  res.</span>status(200).json({
+    status: 200,
+    data: messages,
+&nbsp;
+  });
+});
 &nbsp;
 //    get one message
-   export const <span class="fstat-no" title="function not covered" >getOneMessage </span>= ((req,res)=&gt;{
-    const email = <span class="cstat-no" title="statement not covered" >messages.f</span>ind(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.id === parseInt(req.params.id));
-<span class="cstat-no" title="statement not covered" >    if(!email){</span>
-<span class="cstat-no" title="statement not covered" >         res.</span>status(404).send('email you are looking for is not found');
-        }else{
+export const <span class="fstat-no" title="function not covered" >getOneMessage </span>= ((req, res) =&gt; {
+  const email = <span class="cstat-no" title="statement not covered" >messages.f</span>ind(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.id === parseInt(req.params.id));
+<span class="cstat-no" title="statement not covered" >  if (!email) {</span>
+<span class="cstat-no" title="statement not covered" >    res.</span>status(404).send('email you are looking for is not found');
+  } else {
 <span class="cstat-no" title="statement not covered" >    res.</span>status(200).json({
-        status: 200,
-        data: email
-    
-    })
-}
-   
-   });
+      status: 200,
+      data: email,
+&nbsp;
+    });
+  }
+});
 &nbsp;
 //    get read messages
-   export const <span class="fstat-no" title="function not covered" >getReadMessages </span>= ((req,res)=&gt;{
-       const readMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status ==='read');
-<span class="cstat-no" title="statement not covered" >       if(!readMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no read email');
-<span class="cstat-no" title="statement not covered" >       res.</span>status(200).json({
-           status: 200,
-           data: readMessages
-       });
-   });
+export const <span class="fstat-no" title="function not covered" >getReadMessages </span>= ((req, res) =&gt; {
+  const readMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status === 'read');
+<span class="cstat-no" title="statement not covered" >  if (!readMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no read email');
+<span class="cstat-no" title="statement not covered" >  res.</span>status(200).json({
+    status: 200,
+    data: readMessages,
+  });
+});
 &nbsp;
 //    get unread messages
-   export const <span class="fstat-no" title="function not covered" >getUnReadMessages </span>= ((req,res)=&gt;{
-    const UnReadMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status ==='unread');
-<span class="cstat-no" title="statement not covered" >    if(!UnReadMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no unread email');
-<span class="cstat-no" title="statement not covered" >    res.</span>status(200).json({
-        status: 200,
-        data: UnReadMessages,
-    });
+export const <span class="fstat-no" title="function not covered" >getUnReadMessages </span>= ((req, res) =&gt; {
+  const UnReadMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status === 'unread');
+<span class="cstat-no" title="statement not covered" >  if (!UnReadMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no unread email');
+<span class="cstat-no" title="statement not covered" >  res.</span>status(200).json({
+    status: 200,
+    data: UnReadMessages,
+  });
 });
 &nbsp;
 // get received emails
-export const <span class="fstat-no" title="function not covered" >getReceivedMessages </span>= ((req,res)=&gt;{
-    const receivedMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status ==='received');
-<span class="cstat-no" title="statement not covered" >    if(!receivedMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no received email');
-<span class="cstat-no" title="statement not covered" >    res.</span>status(200).json({
-        status: 200,
-        data: receivedMessages,
-    });
+export const <span class="fstat-no" title="function not covered" >getReceivedMessages </span>= ((req, res) =&gt; {
+  const receivedMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status === 'received');
+<span class="cstat-no" title="statement not covered" >  if (!receivedMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no received email');
+<span class="cstat-no" title="statement not covered" >  res.</span>status(200).json({
+    status: 200,
+    data: receivedMessages,
+  });
 });
 &nbsp;
 //    delete message
-export const deleteMessage = ((req,res)=&gt;{
-    const deleteEmail = messages.find(email =&gt; email.id === parseInt(req.params.id));
-    
-    if(!deleteEmail){
-         res.status(400).send({status: 400,error: 'no email to delete'});
+export const deleteMessage = ((req, res) =&gt; {
+  const deleteEmail = messages.find(email =&gt; email.id === parseInt(req.params.id));
 &nbsp;
-}else{
-&nbsp;
+  if (!deleteEmail) {
+    res.status(400).send({ status: 400, error: 'no email to delete' });
+  } else {
     const index = messages.indexOf(deleteEmail);
-    messages.splice(index, 1)
+    messages.splice(index, 1);
     res.status(200).send({
-        status: 200,
-        data:{
-            id: req.params.id,
-            message: 'email deleted'
-        }
+      status: 200,
+      data: {
+        id: req.params.id,
+        message: 'email deleted',
+      },
     });
-}
-   
-   });
+  }
+});
 &nbsp;
 //  get sent messages
-export const <span class="fstat-no" title="function not covered" >getSentMessages </span>= ((req,res)=&gt;{
-    const sentMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status ==='sent');
-<span class="cstat-no" title="statement not covered" >    if(!sentMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no sent email');
-<span class="cstat-no" title="statement not covered" >    res.</span>status(200).json({
-        status: 200,
-        data: sentMessages,
-    });
-})
+export const <span class="fstat-no" title="function not covered" >getSentMessages </span>= ((req, res) =&gt; {
+  const sentMessages = <span class="cstat-no" title="statement not covered" >messages.f</span>ilter(<span class="fstat-no" title="function not covered" >email<span class="cstat-no" title="statement not covered" > </span>=&gt; e</span>mail.status === 'sent');
+<span class="cstat-no" title="statement not covered" >  if (!sentMessages.length) <span class="cstat-no" title="statement not covered" >res.</span></span>status(404).send('there is no sent email');
+<span class="cstat-no" title="statement not covered" >  res.</span>status(200).json({
+    status: 200,
+    data: sentMessages,
+  });
+});
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 14:02:54 GMT+0200 (Central Africa Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 18 2019 14:14:45 GMT+0200 (Central Africa Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

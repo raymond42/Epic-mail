@@ -25,9 +25,9 @@
         <span class='fraction'>32/39</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>8/12</span>
+        <span class='fraction'>10/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.25% </span>
+        <span class="strong">81.82% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>26/32</span>
+        <span class='fraction'>27/33</span>
       </div>
     </div>
     <p class="quiet">
@@ -130,10 +130,12 @@
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -167,14 +169,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -192,25 +192,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -218,102 +214,97 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import users from '../models/users';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable max-len */
+/* eslint-disable no-shadow */
+/* eslint-disable radix */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable consistent-return */
+import lodash from 'lodash';
+import users from '../models/users';
 import validateUserSignup from '../helpers/usersValidationSignup';
 import validateLogin from '../helpers/usersValidationLogin';
-import lodash from 'lodash'
 &nbsp;
 &nbsp;
 // signup
-export const signup = ((req,res) =&gt;{
-    const user = users.find(email =&gt; email.email === req.body.email)
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (user) <span class="cstat-no" title="statement not covered" >return r</span>es.status(400).send({ status: 400, error: 'The email is already registered' })
+export const signup = ((req, res) =&gt; {
+  const user = users.find(email =&gt; email.email === req.body.email);
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (user) <span class="cstat-no" title="statement not covered" >return r</span>es.status(400).send({ status: 400, error: 'The email is already registered' });
 &nbsp;
-    const {error} = validateUserSignup.validation(req.body);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (error){
-        res.status(400).send({ status: 201,errr: error.details[0].message});
-        return;
-    }
-    
-    const _id = <span class="cstat-no" title="statement not covered" >parseInt(u</span>sers.length + 1);
-    const newUser = <span class="cstat-no" title="statement not covered" >{</span>
-        id: _id,
-        email: req.body.email,
-        firsName: req.body.firsName,
-        lastName: req.body.lastName,
-        password: req.body.password,
-    }
+  const { error } = validateUserSignup.validation(req.body);
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (error) {
+    res.status(400).send({ status: 201, errr: error.details[0].message });
+    return;
+  }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    users.p</span>ush(newUser);
-<span class="cstat-no" title="statement not covered" >    res.</span>status(201).send({
-        status: 201,
-        data: lodash.pick(newUser,['id','email','firstName','lastName']) 
+  const _id = <span class="cstat-no" title="statement not covered" >parseInt(u</span>sers.length + 1);
+  const newUser = <span class="cstat-no" title="statement not covered" >{</span>
+    id: _id,
+    email: req.body.email,
+    firsName: req.body.firsName,
+    lastName: req.body.lastName,
+    password: req.body.password,
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  users.p</span>ush(newUser);
+<span class="cstat-no" title="statement not covered" >  res.</span>status(201).send({
+    status: 201,
+    data: lodash.pick(newUser, ['id', 'email', 'firstName', 'lastName']),
+  });
 });
 &nbsp;
-})
-&nbsp;
 // login
-export const login = ((req,res) =&gt;{
-    
+export const login = ((req, res) =&gt; {
+  const { error } = validateLogin.validation(req.body);
+  if (error) {
+    res.status(400).send(error.details[0].message);
+    return;
+  }
 &nbsp;
-    const {error} = validateLogin.validation(req.body);
-    if (error){
-        res.status(400).send(error.details[0].message);
-        return;
-    }
 &nbsp;
-    const contact = users.find(contact =&gt; contact.email === req.body.email)
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (contact) {
-         res.status(200).send(contact)
-    }else{
+  const contact = users.find(contact =&gt; contact.email === req.body.email &amp;&amp; contact.password === req.body.password);
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (contact) {
+    res.status(200).send(contact);
+  } else {
 <span class="cstat-no" title="statement not covered" >    res.</span>status(404).json({
-        status: 404,
-        message: "user not found"
-    })
-}
-})
+      status: 404,
+      message: 'user not found',
+    });
+  }
+});
 &nbsp;
 // get a contact
-export const getContact = ((req,res)=&gt;{
-    const contact = users.find(contact =&gt; contact.id === parseInt(req.params.id));
-    if(!contact) {res.status(404).send('contact not found');
-    
-}else{
+export const getContact = ((req, res) =&gt; {
+  const contact = users.find(contact =&gt; contact.id === parseInt(req.params.id));
+  if (!contact) {
+    res.status(404).send('contact not found');
+  } else {
     res.status(200).json({
-        status: 200,
-        data: contact,
-        })
-    }
-   
-   });
+      status: 200,
+      data: contact,
+    });
+  }
+});
 &nbsp;
 //    get all contacts
 &nbsp;
-export const getAllContacts = ((req,res)=&gt;{
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(users.length &lt;= 0) 
-    {
-<span class="cstat-no" title="statement not covered" >        res.</span>status(404).send('no contact found');
+export const getAllContacts = ((req, res) =&gt; {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (users.length &lt;= 0) {
+<span class="cstat-no" title="statement not covered" >    res.</span>status(404).send('no contact found');
+  } else {
+    res.status(200).json({
+      status: 200,
+      data: users,
 &nbsp;
-    }else{
-&nbsp;
-        res.status(200).json({
-            status: 200,
-            data: users
-            
-        })
-    }
-   
-   });
-&nbsp;
+    });
+  }
+});
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 14:02:54 GMT+0200 (Central Africa Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 18 2019 14:14:45 GMT+0200 (Central Africa Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

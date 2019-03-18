@@ -1,10 +1,12 @@
+/* eslint-disable import/no-duplicates */
 import express from 'express';
-const router = express.Router();
 
-import {signup} from '../controllers/users';
-import {login} from '../controllers/users';
-import {getContact} from '../controllers/users';
-import {getAllContacts} from '../controllers/users';
+import { signup } from '../controllers/users';
+import { login } from '../controllers/users';
+import { getContact } from '../controllers/users';
+import { getAllContacts } from '../controllers/users';
+
+const router = express.Router();
 
 router.post('/api/v1/users/signup', signup);
 router.post('/api/v1/users/login', login);

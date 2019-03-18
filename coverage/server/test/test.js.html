@@ -172,12 +172,8 @@
 <a name='L124'></a><a href='#L124'>124</a>
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L127'></a><a href='#L127'>127</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,7 +184,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,7 +209,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -240,7 +234,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -269,9 +262,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -280,7 +271,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -308,7 +298,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import chai from 'chai';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable no-undef */
+import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
 &nbsp;
@@ -319,11 +310,10 @@ chai.should();
 // get all users
 &nbsp;
 describe('users', () =&gt; {
-&nbsp;
-it('should get all users', (done) =&gt; {
+  it('should get all users', (done) =&gt; {
     chai.request(server)
       .get('/api/v1/users/contacts')
-      .end((err, res)=&gt;{
+      .end((err, res) =&gt; {
         res.should.have.status(200);
         res.body.should.be.an('object');
         done();
@@ -331,121 +321,116 @@ it('should get all users', (done) =&gt; {
   });
 &nbsp;
 &nbsp;
-it('should not get any user /', (done) =&gt; {
-  chai.request(server)
-    .get('/api/v1/users')
-    .end((err, res)=&gt;{
-      res.should.have.status(404);
-      res.body.should.be.an('object');
-      done();
-    });
-});
-});
-&nbsp;
-// get a specific contact
-&nbsp;
-describe('user', () =&gt; {
-&nbsp;
-  it('should get a specific user /', (done) =&gt; {
-      chai.request(server)
-        .get('/api/v1/users/contact/1')
-        .end((err, res)=&gt;{
-          res.should.have.status(200);
-          res.body.should.be.an('object');
-          done();
-        });
-    });
-  
-  
-  it('should not get a specific user /', (done) =&gt; {
+  it('should not get any user /', (done) =&gt; {
     chai.request(server)
-      .get('/api/v1/users/contact/234344')
-      .end((err, res)=&gt;{
+      .get('/api/v1/users')
+      .end((err, res) =&gt; {
         res.should.have.status(404);
         res.body.should.be.an('object');
         done();
       });
   });
-  });
+});
 &nbsp;
-  // login
+// get a specific contact
 &nbsp;
-describe('login', () =&gt; {
-&nbsp;
-  it('should be able to login', (done) =&gt; {
-    const user = {
-    email: "raymond@gmail.com",
-    password: "hdsjakajdsjd"
-    };
-      chai.request(server)
-        .post('/api/v1/users/login')
-        .send(user)
-        .end((err, res)=&gt;{
-          res.should.have.status(200);
-          res.body.should.be.an('object');
-          done();
-        });
-    });
-  
-  
-  it('should not be able to login', (done) =&gt; {
+describe('user', () =&gt; {
+  it('should get a specific user /', (done) =&gt; {
     chai.request(server)
-      .post('/api/v1/users/login')
-      .end((err, res)=&gt;{
-        res.should.have.status(400);
+      .get('/api/v1/users/contact/1')
+      .end((err, res) =&gt; {
+        res.should.have.status(200);
         res.body.should.be.an('object');
         done();
       });
   });
 &nbsp;
+&nbsp;
+  it('should not get a specific user /', (done) =&gt; {
+    chai.request(server)
+      .get('/api/v1/users/contact/234344')
+      .end((err, res) =&gt; {
+        res.should.have.status(404);
+        res.body.should.be.an('object');
+        done();
+      });
+  });
+});
+&nbsp;
+// login
+&nbsp;
+describe('login', () =&gt; {
+  it('should be able to login', (done) =&gt; {
+    const user = {
+      email: 'raymond@gmail.com',
+      password: 'hdsjakajdsjd',
+    };
+    chai.request(server)
+      .post('/api/v1/users/login')
+      .send(user)
+      .end((err, res) =&gt; {
+        res.should.have.status(200);
+        res.body.should.be.an('object');
+        done();
+      });
+  });
+&nbsp;
+&nbsp;
+  it('should not be able to login', (done) =&gt; {
+    chai.request(server)
+      .post('/api/v1/users/login')
+      .end((err, res) =&gt; {
+        res.should.have.status(400);
+        res.body.should.be.an('object');
+        done();
+      });
+  });
 });
 &nbsp;
 // signup
 describe('signup', () =&gt; {
-&nbsp;
   it('should be able to signup', (done) =&gt; {
     const user = {
-      email: "eric@gmail.com",
-      firsName: "frank",
-      lastName: "fred",
-      password: "dhjfddjdsj"
+      email: 'eric@gmail.com',
+      firsName: 'frank',
+      lastName: 'fred',
+      password: 'dhjfddjdsj',
     };
-      chai.request(server)
-        .post('/api/v1/users/signup')
-        .send(user)
-        .end((err, res)=&gt;{
-          
-         res.should.be.an('object');
-         res.body.should.be.a.property('status').eql(201);
-          done();
-        });
-    });
-  
-  
+    chai.request(server)
+      .post('/api/v1/users/signup')
+      .send(user)
+      .end((err, res) =&gt; {
+        res.should.be.an('object');
+        res.body.should.be.a.property('status').eql(201);
+        done();
+      });
+  });
+&nbsp;
+&nbsp;
   it('should not be able to signup', (done) =&gt; {
-    const newUser ={
-      email: "",
-      firsName: "Christian",
-      lastName: "Fred",
-      password: "sdfdsdfdfsd"
-  }
+    const newUser = {
+      email: '',
+      firsName: 'Christian',
+      lastName: 'Fred',
+      password: 'sdfdsdfdfsd',
+    };
     chai.request(server)
       .post('/api/v1/users/signup')
       .send(newUser)
-      .end((err, res)=&gt;{
+      .end((err, res) =&gt; {
         res.should.have.status(400);
         res.body.should.be.an('object');
         done();
       });
   });
-&nbsp;
-});</pre></td></tr>
+});
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 14:02:54 GMT+0200 (Central Africa Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 18 2019 14:14:45 GMT+0200 (Central Africa Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
